@@ -1,5 +1,6 @@
 #include "mat.h"
 
+
 int main() {
     /*todo init matrices A-F*/
     /*todo change to matArray*/
@@ -45,8 +46,15 @@ int main() {
     pmat D = mArr[3];
 
     print_mat(A);
+
+    mul_scalar(A, 3.f, C);
+
+
+/*
     print_mat(C);
-    mul_mat(A, C, D);
+*/
+/*    mul_mat(A, C, D);*//*
+
 /*
     add_mat(A, A, A);
     add_mat(A, C, D);

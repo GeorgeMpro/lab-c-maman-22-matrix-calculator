@@ -73,3 +73,18 @@ void mul_mat(pmat m1, pmat m2, pmat result) {
     }
     print_mat(result);
 }
+
+/*Multiply matrix by scalar*/
+void mul_scalar(pmat m, float scalar, pmat result) {
+    int i, j;
+    float tmpSum;
+    printf("\nMultiplying by scalar %4.2f * %s = %s", scalar, m->name, result->name);
+    for (i = 0; i < ROW; ++i) {
+        for (j = 0; j < COL; ++j) {
+            tmpSum = scalar * getCell(m, i, j);
+            setCell(result, i, j, tmpSum);
+        }
+    }
+    printf("\nResult:");
+    print_mat(result);
+}

@@ -33,6 +33,8 @@ void sub_mat(pmat m1, pmat m2, pmat sum);
 
 void mul_mat(pmat m1, pmat m2, pmat result);
 
+void mul_scalar(pmat m, float scalar, pmat result);
+
 /* **setup teardown** */
 void initMatrices(pmat matArray[]);
 
