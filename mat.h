@@ -17,15 +17,23 @@ typedef struct {
 typedef mat *pmat;
 
 /*Function Definitions*/
+
+/* **matrix functionality** */
+float getCell(pmat mat, int row, int col);
+
+void setCell(pmat mat, int row, int col, float value);
+
+void print_mat(pmat mat);
+
+
+/* Can use the same matrix multiple times*/
+void add_mat(pmat m1, pmat m2, pmat sum);
+
+
+/* **setup teardown** */
 void initMatrices(pmat matArray[]);
 
 pmat iniMat();
-
-float accessCell(pmat mat, int row, int col);
-
-void modifyCell(pmat mat, int row, int col, float value);
-
-void print_mat(pmat mat);
 
 char *setGenericName(pmat const *matArray, int i);
 

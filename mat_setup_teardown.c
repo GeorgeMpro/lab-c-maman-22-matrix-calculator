@@ -11,7 +11,7 @@ void initMatrices(pmat matArray[]) {
         setGenericName(matArray, i);
 
         /*todo del*/
-        printf("\nname %s\n", matArray[i]->name);
+        /*     printf("\nname %s\n", matArray[i]->name);*/
 
         if (!matArray[i]) {
             printf("\nUnable to allocate memory to %d Matrices.\nClearing memory and exiting program.\n",
@@ -53,6 +53,7 @@ char *setGenericName(pmat const *matArray, int i) {
     char suf1 = 'A';
     char suf2;
 
+    /*set and increment name according to given array index*/
     char *name = matArray[i]->name;
     strcpy(name, prefix);
     n = (int) suf1 + i;
@@ -75,7 +76,7 @@ void freeMatrixMemory(mat *mat) {
     int j;
     float **data;
     /*todo del*/
-    printf("\nFreeing matrix %s", mat->name);
+/*    printf("\nFreeing matrix %s", mat->name);*/
 
     free(mat->name);
     data = mat->data;
@@ -84,6 +85,6 @@ void freeMatrixMemory(mat *mat) {
     }
     free(data);
     /*todo del*/
-    printf("\nFreed\n");
+/*    printf("\nFreed\n");*/
 }
 
