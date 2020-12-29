@@ -24,3 +24,5 @@ pmat iniMat();
 float accessCell(pmat mat, int row, int col);
 
 void modifyCell(pmat mat, int row, int col, float value);
+
+void print_mat(pmat mat);

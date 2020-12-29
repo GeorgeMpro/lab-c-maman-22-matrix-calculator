@@ -44,3 +44,15 @@ float accessCell(pmat mat, int row, int col) {
 void modifyCell(pmat mat, int row, int col, float value) {
     *(*((mat->data) + row) + col) = value;
 }
+
+
+void print_mat(pmat mat) {
+    int i, j;
+    printf("\n%s\n", mat->name);
+    for (i = 0; i < ROW; ++i) {
+        for (j = 0; j < COL; ++j) {
+            printf("%4.2f\t", accessCell(mat, i, j));
+        }
+        printf("\n");
+    }
+}
