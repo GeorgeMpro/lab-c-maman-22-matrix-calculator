@@ -1,6 +1,5 @@
 #include "mat.h"
 
-
 int main() {
     /*todo init matrices A-F*/
     /*todo change to matArray*/
@@ -15,28 +14,46 @@ int main() {
 
 
     /*todo del*/
-    setCell(mArr[0], 0, 0, 300.3f);
-    setCell(mArr[0], 0, 1, 300.3f);
-    setCell(mArr[0], 0, 2, 300.3f);
-    setCell(mArr[0], 0, 3, 300.3f);
-    setCell(mArr[0], 2, 0, 300.3f);
-    setCell(mArr[0], 1, 3, 1000.3f);
+    pmat A = mArr[0];
+    setCell(A, 0, 0, 1.f);
+    setCell(A, 0, 1, 2.f);
+    setCell(A, 0, 2, 3.f);
+    setCell(A, 0, 3, 4.f);
+    setCell(A, 2, 0, 5.f);
+    setCell(A, 1, 3, 6.f);
+    setCell(A, 3, 1, 2.f);
+    setCell(A, 3, 2, 2.f);
+    setCell(A, 3, 3, 2.f);
     /*todo del*/
-    print_mat(mArr[0]);
 
-    setCell(mArr[2], 0, 1, 100.0f);
-    setCell(mArr[2], 0, 2, 100.0f);
-    setCell(mArr[2], 1, 0, 50.0f);
-    setCell(mArr[2], 1, 2, 110.0f);
-    setCell(mArr[2], 0, 1, 50.0f);
-    setCell(mArr[2], 1, 0, 100.f);
-    setCell(mArr[2], 2, 2, 22.f);
-    setCell(mArr[2], 3, 0, 30.f);
-    print_mat(mArr[2]);
+    pmat C = mArr[2];
+    setCell(C, 0, 1, 7.f);
+    setCell(C, 0, 2, 8.f);
+    setCell(C, 1, 0, 9.f);
+    setCell(C, 1, 2, 10.f);
+    setCell(C, 0, 1, 11.f);
+    setCell(C, 1, 0, 12.f);
+    setCell(C, 2, 2, 13.f);
+    setCell(C, 3, 0, 13.f);
+    setCell(C, 3, 3, 1.f);
+    setCell(C, 2, 3, 1.f);
+    setCell(C, 1, 3, 1.f);
 
-    add_mat(mArr[0], mArr[2], mArr[3]);
-    add_mat(mArr[0], mArr[0], mArr[0]);
 
+
+/*todo del functions*/
+    pmat D = mArr[3];
+
+    print_mat(A);
+    print_mat(C);
+    mul_mat(A, C, D);
+/*
+    add_mat(A, A, A);
+    add_mat(A, C, D);
+
+    *//*todo del*//*
+    sub_mat(C, A, D);
+    sub_mat(A, A, D);*/
 
 
     /*todo clear memory allocation*/

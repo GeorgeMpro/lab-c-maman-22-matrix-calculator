@@ -29,6 +29,9 @@ void print_mat(pmat mat);
 /* Can use the same matrix multiple times*/
 void add_mat(pmat m1, pmat m2, pmat sum);
 
+void sub_mat(pmat m1, pmat m2, pmat sum);
+
+void mul_mat(pmat m1, pmat m2, pmat result);
 
 /* **setup teardown** */
 void initMatrices(pmat matArray[]);
