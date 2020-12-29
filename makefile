@@ -1,16 +1,22 @@
 CC = gcc # compiler
 CFLAGS = -ansi -Wall -pedantic # gcc flags
 #EXE_O_DEPS = complex.o mycomp.o input.o # dependencies for executable
-EXE_O_DEPS = mymat.o mat.o #todo input.o # dependencies for executable
+EXE_O_DEPS = mymat.o mat.o mat_setup_teardown.o #todo input.o # dependencies for executable
 # final executable
 mymat: $(EXE_O_DEPS)
 	$(CC) -g $(EXE_O_DEPS) $(CFLAGS) -o $@
-# complex operations
+
+
 mymat.o: mymat.c
 	$(CC) -c mymat.c $(CFLAGS) -o $@
 
+#matrix functionality
 mat.o: mat.c
 	$(CC) -c mat.c $(CFLAGS) -o $@
+
+#matrix initialization and memory freeing
+mat_setup_teardown.o: mat_setup_teardown.c
+	$(CC) -c mat_setup_teardown.c $(CFLAGS) -o $@
 
 #todo remove notes
 #input.o: input.c

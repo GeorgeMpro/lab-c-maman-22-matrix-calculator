@@ -1,9 +1,14 @@
 #include "mat.h"
 
+
 int main() {
     /*todo init matrices A-F*/
     pmat matArray[NUMBER_OF_MATRICES];
     initMatrices(matArray);
+
+    /*TODO user interface and loop code*/
+
+    /*todo del testing code*/
     pmat A = iniMat();
     A->name = "MAT_A";
 
@@ -28,6 +33,7 @@ int main() {
     printf("\nName %s", A->name);
 
     /*todo clear memory allocation*/
+    clearAllocatedMatrices(matArray);
 
     return 0;
 }

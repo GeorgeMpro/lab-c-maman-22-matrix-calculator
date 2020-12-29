@@ -28,3 +28,7 @@ void modifyCell(pmat mat, int row, int col, float value);
 void print_mat(pmat mat);
 
 char *setGenericName(pmat const *matArray, int i);
+
+void clearAllocatedMatrices(pmat matArray[]);
+
+void freeMatrixMemory(mat *mat);
