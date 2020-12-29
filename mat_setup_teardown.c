@@ -5,22 +5,16 @@
 /*Initialize and name an array of matrices*/
 void initMatrices(pmat matArray[]) {
     int i;
-
     for (i = 0; i < NUMBER_OF_MATRICES; ++i) {
         matArray[i] = iniMat();
         setGenericName(matArray, i);
 
-        /*todo del*/
-        /*     printf("\nname %s\n", matArray[i]->name);*/
-
         if (!matArray[i]) {
             printf("\nUnable to allocate memory to %d Matrices.\nClearing memory and exiting program.\n",
                    NUMBER_OF_MATRICES);
-            /*todo clear memory if error*/
             exit(0);
         }
     }
-
 }
 
 /*Initialize matrix by allocating needed memory.*/
@@ -34,18 +28,17 @@ pmat iniMat() {
         if (new->name && new->data) {
             for (i = 0; i < COL; ++i) {
                 new->data[i] = (float *) calloc(COL, sizeof(float));
-                /*todo check if cannot allocate memory and clear*/
             }
         }
-
     } else {
         free(new);
-        return NULL;
+        printf("\nUnable to allocate memory.Exiting");
+        exit(0);
     }
 
     return new;
 }
-/*todo cleanup*/
+
 /*Generate and set matrix name*/
 char *setGenericName(pmat const *matArray, int i) {
     int n;
@@ -75,8 +68,6 @@ void clearAllocatedMatrices(pmat matArray[]) {
 void freeMatrixMemory(mat *mat) {
     int j;
     float **data;
-    /*todo del*/
-/*    printf("\nFreeing matrix %s", mat->name);*/
 
     free(mat->name);
     data = mat->data;
@@ -84,7 +75,5 @@ void freeMatrixMemory(mat *mat) {
         free(data[j]);
     }
     free(data);
-    /*todo del*/
-/*    printf("\nFreed\n");*/
 }
 

@@ -1,6 +1,5 @@
 #include "mat.h"
 
-
 int main() {
     /*todo init matrices A-F*/
     /*todo change to matArray*/
@@ -47,15 +46,12 @@ int main() {
 
     print_mat(A);
 
-    mul_scalar(A, 3.f, C);
-
-
+    trans_mat(A, A);
 /*
     print_mat(C);
 */
 /*    mul_mat(A, C, D);*//*
 
-/*
     add_mat(A, A, A);
     add_mat(A, C, D);
 
@@ -65,7 +61,7 @@ int main() {
 
 
     /*todo clear memory allocation*/
-    clearAllocatedMatrices(mArr);
+    /*  clearAllocatedMatrices(mArr);*/
 
     return 0;
 }

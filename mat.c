@@ -6,7 +6,6 @@ float getCell(pmat mat, int row, int col) {
     return mat->data[row][col];
 }
 
-/*todo alternative syntax to access cell*/
 /*Change value in given matrix cell.*/
 void setCell(pmat mat, int row, int col, float value) {
     *(*((mat->data) + row) + col) = value;
@@ -24,7 +23,6 @@ void print_mat(pmat mat) {
     }
 }
 
-/*todo write and clean*/
 /*Sum two matrices and put values to third specified matrix*/
 void add_mat(pmat m1, pmat m2, pmat sum) {
     int i, j;
@@ -36,7 +34,6 @@ void add_mat(pmat m1, pmat m2, pmat sum) {
             setCell(sum, i, j, tmpSum);
         }
     }
-    /*todo del?*/
     printf("\nResult:");
     print_mat(sum);
 }
@@ -51,7 +48,6 @@ void sub_mat(pmat m1, pmat m2, pmat sum) {
             setCell(sum, i, j, tmpSum);
         }
     }
-    /*todo del?*/
     printf("\nResult:");
     print_mat(sum);
 }
@@ -87,4 +83,32 @@ void mul_scalar(pmat m, float scalar, pmat result) {
     }
     printf("\nResult:");
     print_mat(result);
+}
+
+/*Transpose matrix to given matrix*/
+void trans_mat(pmat from, pmat transposed) {
+    int i, j;
+    float tmpNum;
+    pmat tmpMat;
+    tmpMat = iniMat();
+
+    printf("\nTranspoing %s to %s", from->name, transposed->name);
+    for (i = 0; i < ROW; ++i) {
+        for (j = 0; j < COL; ++j) {
+            tmpNum = getCell(from, i, j);
+            setCell(tmpMat, j, i, tmpNum);
+        }
+    }
+
+    for (i = 0; i < ROW; ++i) {
+        for (j = 0; j < COL; ++j) {
+            tmpNum = getCell(tmpMat, i, j);
+            setCell(transposed, i, j, tmpNum);
+        }
+    }
+
+    freeMatrixMemory(tmpMat);
+
+    printf("\nResult:");
+    print_mat(transposed);
 }
