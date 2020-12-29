@@ -3,7 +3,7 @@
 int main() {
     /*todo init matrices A-F*/
     pmat matArray[NUMBER_OF_MATRICES];
-/*    initMatrices(matArray);*/
+    initMatrices(matArray);
     pmat A = iniMat();
     A->name = "MAT_A";
 

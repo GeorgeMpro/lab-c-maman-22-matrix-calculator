@@ -1,9 +1,18 @@
+#include <string.h>
 #include "mat.h"
 
+
+/*Initialize and name an array of matrices*/
 void initMatrices(pmat matArray[]) {
     int i;
+
     for (i = 0; i < NUMBER_OF_MATRICES; ++i) {
         matArray[i] = iniMat();
+        setGenericName(matArray, i);
+
+        /*todo del*/
+        printf("\nname %s\n", matArray[i]->name);
+
         if (!matArray[i]) {
             printf("\nUnable to allocate memory to %d Matrices.\nClearing memory and exiting program.\n",
                    NUMBER_OF_MATRICES);
@@ -14,6 +23,7 @@ void initMatrices(pmat matArray[]) {
 
 }
 
+/*Initialize matrix by allocating needed memory.*/
 pmat iniMat() {
     pmat new;
     int i, j;
@@ -35,17 +45,35 @@ pmat iniMat() {
 
     return new;
 }
+/*todo cleanup*/
+/*Generate and set matrix name*/
+char *setGenericName(pmat const *matArray, int i) {
+    int n;
+    char *prefix = "MAT_";
+    char suf1 = 'A';
+    char suf2;
 
+    char *name = matArray[i]->name;
+    strcpy(name, prefix);
+    n = (int) suf1 + i;
+    suf2 = (char) n;
+
+    strncat(name, &suf2, 1);
+    return name;
+}
+
+/*Access specified cell in given matrix*/
 float accessCell(pmat mat, int row, int col) {
     return mat->data[row][col];
 }
 
 /*todo alternative syntax to access cell*/
+/*Change value in given matrix cell.*/
 void modifyCell(pmat mat, int row, int col, float value) {
     *(*((mat->data) + row) + col) = value;
 }
 
-
+/*Print given matrix name and values*/
 void print_mat(pmat mat) {
     int i, j;
     printf("\n%s\n", mat->name);
