@@ -14,16 +14,16 @@ void setCell(pmat mat, int row, int col, float value) {
 /*Print given matrix name and values*/
 void print_mat(pmat mat) {
     int i, j;
-    printf("\n%s\n", mat->name);
+    printf("%s\n", mat->name);
     for (i = 0; i < ROW; ++i) {
         for (j = 0; j < COL; ++j) {
-            printf("%4.2f\t", getCell(mat, i, j));
+            printf("%7.2f\t", getCell(mat, i, j));
         }
         printf("\n");
     }
 }
 
-/*Sum two matrices and put values to third specified matrix*/
+/*Sum two matrices and put values into third specified matrix*/
 void add_mat(pmat m1, pmat m2, pmat sum) {
     int i, j;
     float tmpSum;
@@ -38,6 +38,7 @@ void add_mat(pmat m1, pmat m2, pmat sum) {
     print_mat(sum);
 }
 
+/*Subtract two matrices and put values into third specified matrix*/
 void sub_mat(pmat m1, pmat m2, pmat sum) {
     int i, j;
     float tmpSum;
@@ -57,7 +58,7 @@ void mul_mat(pmat m1, pmat m2, pmat result) {
     int i, j, k;
     float tmpSum;
     tmpSum = 0;
-    printf("\nMultiplying %s X %s = %s", m1->name, m2->name, result->name);
+    printf("\nMultiplying %s * %s = %s", m1->name, m2->name, result->name);
     for (i = 0; i < ROW; ++i) {
         for (j = 0; j < COL; ++j) {
             tmpSum = 0;
@@ -71,13 +72,14 @@ void mul_mat(pmat m1, pmat m2, pmat result) {
 }
 
 /*Multiply matrix by scalar*/
-void mul_scalar(pmat m, float scalar, pmat result) {
+void mul_scalar(pmat m, const float *scalar, pmat result) {
     int i, j;
     float tmpSum;
-    printf("\nMultiplying by scalar %4.2f * %s = %s", scalar, m->name, result->name);
+
+    printf("\nMultiplying by scalar %4.2f * %s = %s", *scalar, m->name, result->name);
     for (i = 0; i < ROW; ++i) {
         for (j = 0; j < COL; ++j) {
-            tmpSum = scalar * getCell(m, i, j);
+            tmpSum = *scalar * getCell(m, i, j);
             setCell(result, i, j, tmpSum);
         }
     }
@@ -92,7 +94,7 @@ void trans_mat(pmat from, pmat transposed) {
     pmat tmpMat;
     tmpMat = iniMat();
 
-    printf("\nTranspoing %s to %s", from->name, transposed->name);
+    printf("\nTransposing %s to %s", from->name, transposed->name);
     for (i = 0; i < ROW; ++i) {
         for (j = 0; j < COL; ++j) {
             tmpNum = getCell(from, i, j);
@@ -111,4 +113,19 @@ void trans_mat(pmat from, pmat transposed) {
 
     printf("\nResult:");
     print_mat(transposed);
+}
+
+/*Copy matrix to copy*/
+void read_mat(pmat destination, pmat copy, char *name) {
+    int i, j;
+    float tmpSum;
+    destination->name = name;
+    for (i = 0; i < ROW; ++i) {
+        for (j = 0; j < COL; ++j) {
+            tmpSum = getCell(copy, i, j);
+            setCell(destination, i, j, tmpSum);
+        }
+    }
+    printf("\nWritten ");
+    print_mat(destination);
 }

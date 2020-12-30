@@ -1,0 +1,8 @@
+,
+    read_mat MAT_A 12.3       ,
+     read_mat   MAT_B        12.3.1
+read_mat 12,11.3,1..
+mul_scalar MAT_A,1A.3,MAT_B
+mul_scalar MAT_A,1a.3,MAT_C
+stop please
+

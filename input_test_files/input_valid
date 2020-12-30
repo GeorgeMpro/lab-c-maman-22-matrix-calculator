@@ -1,0 +1,12 @@
+read_mat MAT_A, 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20
+read_mat    MAT_C,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+read_mat     MAT_E,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+read_mat    MAT_F,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18
+add_mat MAT_A,MAT_C,MAT_B
+mul_mat MAT_B,MAT_A,MAT_D
+sub_mat MAT_D,MAT_B,MAT_E
+print_mat MAT_B
+trans_mat MAT_B,MAT_B
+mul_scalar MAT_A,15.3,MAT_F
+mul_scalar MAT_B,-13.6,MAT_F
+stop
