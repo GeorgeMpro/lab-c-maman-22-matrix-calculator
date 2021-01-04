@@ -40,6 +40,7 @@ char *runProgram(char *buffer, usrCommands *cmd, pmat *arr) {
                         execute.func = cmd[i].func;
                         extractParams(arr, piece, execute);
 
+                        /*todo does not stop on stop from keyboard*/
                         /*Special command to exit properly*/
                         if (strcmp(execute.name, STOP_TEXT) == 0) {
                             /*Validate stop command not extra*/
